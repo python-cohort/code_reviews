@@ -160,7 +160,7 @@ class ReedJobsScraper:
 
 
 ReedJobsScraper(
-    keyword="python", salary=85000, how_many_days_back=1, is_contract_only=True
+    keyword="python", salary=85000, how_many_days_back=2, is_contract_only=True
 )
 
 # search_for = ["python", "api", "aws"]

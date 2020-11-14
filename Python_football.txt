@@ -1,0 +1,76 @@
+import requests
+import bs4
+from bs4 import BeautifulSoup as bs
+import pandas as pd
+
+url = "https://www.bbc.co.uk/sport/football/premier-league/table"
+response = requests.get(url)
+
+fixture_page = bs(response.content, 'lxml')
+# print(fixture_page.prettify())
+table = fixture_page.select("table.gs-o-table")[0]
+columns = table.find("thead").find_all("th")
+# print(columns)
+column_names = [c.string for c in columns]
+print(column_names)
+# print([col for col in column_names][2:])
+
+table_rows = table.find("tbody").find_all("tr")
+# print(table_rows)
+l = []
+for tr in table_rows:
+    td = tr.find_all('td')
+    row = [str(tr.get_text()) for tr in td]
+    l.append(row)
+# print(l[0])
+
+df = pd.DataFrame(l, columns=column_names)
+df 
+
+###############################
+
+import requests
+import bs4
+from bs4 import BeautifulSoup as bs
+import pandas as ps
+
+url = "https://www.bbc.co.uk/sport/football/premier-league/table"
+# response = requests.get(url)
+#OOP
+class PremierLeague:
+    url = "https://www.bbc.co.uk/sport/football/premier-league/table"
+
+    def __init__(self, url):
+        self.url = url
+        self.response = requests.get(url)
+        self.fixture_page = BeautifulSoup(response.content, 'lxml')
+        self.table = self.fixture_page.select("table.gs-o-table")[0]
+        self.columns = self.table.find("thead").find_all("th")
+        self.column_names = [c.string for c in self.columns]
+        self.table_rows = self.table.find("tbody").find_all("tr")
+    
+    def get_pl_table_meta_data(self):
+        return self.table
+    
+    def get_columns(self):
+        self.columns = self.table.find("thead").find_all("th")
+        self.column_names = [c.string for c in self.columns]
+    
+    def get_table_rows(self):
+        return self.table_rows
+    
+    #@staticmethod
+    def table_to_df(self):
+        l = []
+        for tr in table_rows:
+            td = tr.find_all('td')
+            row = [str(tr.get_text()) for tr in td]
+            l.append(row)
+        df = pd.DataFrame(l, columns=column_names)
+        df
+
+df = pd.DataFrame(l, columns=column_names)
+
+        
+pl1 = PremierLeague(url)
+print(pl1.table_to_df())

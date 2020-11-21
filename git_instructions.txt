@@ -8,6 +8,10 @@
 	g) "git commit -m "[commit message/notes]"
 	h) "git push --set-upstream origin [name-of-branch]" to create a remote branch on the server
 	i) create a pull request to merge your updates/changes to the master/production branch
+	
+	You can merge two branches by:
+	a) git checkout [the destination branch]
+	b) git pull origin [source-branch] [--allow-unrelated-histories]
 
 2. Migrating existing project to GitHub remote server
 	a) git init
@@ -15,3 +19,4 @@
 	c) git commit -m "[commit message]"
 	d) git remote add origin https://github.com/python-cohort/published_projects.git
 	e) git push -u origin master
+	

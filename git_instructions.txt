@@ -1,0 +1,17 @@
+1. Collaborating and/or working on an existing project in a GitHub remote server
+	a) identify the location/directory where project will be saved and cd into the directory (cd /path/to/directory)
+	b) clone the remote server using (git clone [remote address: http/ssh]
+	c) create a local branch with "git branch [name-of-branch]"
+	d) switch to the new branch with "git checkout [name-of-branch]"
+	e) make all required changes and then once you are ready to commit your work: check status with "git status"
+	f) "git add . " to put your changes into configuration management
+	g) "git commit -m "[commit message/notes]"
+	h) "git push --set-upstream origin [name-of-branch]" to create a remote branch on the server
+	i) create a pull request to merge your updates/changes to the master/production branch
+
+2. Migrating existing project to GitHub remote server
+	a) git init
+	b) git add .
+	c) git commit -m "[commit message]"
+	d) git remote add origin https://github.com/python-cohort/published_projects.git
+	e) git push -u origin master
